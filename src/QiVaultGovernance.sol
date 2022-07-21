@@ -13,10 +13,7 @@ contract QiVaultGovernance is TimelockController {
     allowlistFunctions[IQiVault.setDebtRatio.selector] = true;
     allowlistFunctions[IQiVault.setStabilityPool.selector] = true;
     allowlistFunctions[IQiVault.setMinCollateralRatio.selector] = true;
-    allowlistFunctions[IQiVault.setClosingFee.selector] = true;
-    allowlistFunctions[IQiVault.setOpeningFee.selector] = true;
     allowlistFunctions[IQiVault.setTreasury.selector] = true;
-    allowlistFunctions[IQiVault.setBaseURI.selector] = true;
   }
 
   function execute(
