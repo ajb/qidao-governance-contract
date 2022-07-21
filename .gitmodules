@@ -4,3 +4,6 @@
 [submodule "lib/openzeppelin-contracts.git"]
 	path = lib/openzeppelin-contracts.git
 	url = https://github.com/OpenZeppelin/openzeppelin-contracts.git
+[submodule "lib/solidity-bytes-utils.git"]
+	path = lib/solidity-bytes-utils.git
+	url = https://github.com/GNSPS/solidity-bytes-utils.git
