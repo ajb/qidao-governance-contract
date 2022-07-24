@@ -42,6 +42,25 @@ contract QiVaultGovernanceTest is Test {
     assertEq(IQiVault(WMATIC_VAULT).gainRatio(), 123);
   }
 
+  function testBlocklistFunction() public {
+    vm.prank(MULTISIG);
+
+    vm.expectRevert("QiVaultGovernance: fn blocked");
+
+    governanceContract.execute(
+      WMATIC_VAULT,
+      0,
+      abi.encodeWithSelector(
+        IQiVault.transferToken.selector,
+        address(0),
+        address(0),
+        1
+      ),
+      bytes32(""),
+      bytes32("")
+    );
+  }
+
   function testTimelockFunctionCannotBeExecutedImmediately() public {
     vm.prank(MULTISIG);
     vm.expectRevert("TimelockController: operation is not ready");

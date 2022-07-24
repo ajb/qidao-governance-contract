@@ -38,6 +38,8 @@ interface IQiVault {
     event TransferVault(uint256 vaultID, address from, address to);
     event WithdrawCollateral(uint256 vaultID, uint256 amount);
 
+    function transferToken(address to, address token, uint256 amountToken) external;
+
     function _minimumCollateralPercentage() external view returns (uint256);
 
     function approve(address to, uint256 tokenId) external;
