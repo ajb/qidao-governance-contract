@@ -8,7 +8,7 @@ contract QiVaultGovernance is TimelockController {
   mapping (bytes4 => bool) allowlistFunctions;
   mapping (bytes4 => bool) blocklistFunctions;
 
-  constructor(address[] memory _owners) TimelockController(12 hours, _owners, _owners) {
+  constructor(address[] memory _owners) TimelockController(24 hours, _owners, _owners) {
     // These functions can be called without a timelock:
     allowlistFunctions[IQiVault.setGainRatio.selector] = true;
     allowlistFunctions[IQiVault.setDebtRatio.selector] = true;
@@ -16,8 +16,8 @@ contract QiVaultGovernance is TimelockController {
     allowlistFunctions[IQiVault.setMinCollateralRatio.selector] = true;
     allowlistFunctions[IQiVault.setTreasury.selector] = true;
 
-    // transferToken(address to, address token, uint256 amountToken)
-    blocklistFunctions[0xf5537ede] = true;
+    // These functions are blocked entirely:
+    blocklistFunctions[0xf5537ede] = true; // transferToken(address to, address token, uint256 amountToken)
   }
 
   function execute(

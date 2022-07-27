@@ -90,10 +90,10 @@ contract QiVaultGovernanceTest is Test {
       ),
       bytes32(""),
       bytes32(""),
-      12 hours
+      24 hours
     );
 
-    vm.warp(block.timestamp + 12 hours);
+    vm.warp(block.timestamp + 24 hours);
 
     vm.prank(MULTISIG);
     governanceContract.execute(
