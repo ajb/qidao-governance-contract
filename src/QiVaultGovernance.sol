@@ -38,4 +38,14 @@ contract QiVaultGovernance is TimelockController {
       super.execute(target, value, payload, predecessor, salt);
     }
   }
+
+  function executeBatch(
+    address[] calldata,
+    uint256[] calldata,
+    bytes[] calldata,
+    bytes32,
+    bytes32
+  ) public payable override onlyRoleOrOpenRole(EXECUTOR_ROLE) {
+    revert("executeBatch not supported");
+  }
 }
