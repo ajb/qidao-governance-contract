@@ -13,7 +13,6 @@ contract QiVaultGovernance is TimelockController {
     allowlistFunctions[IQiVault.setGainRatio.selector] = true;
     allowlistFunctions[IQiVault.setDebtRatio.selector] = true;
     allowlistFunctions[IQiVault.setStabilityPool.selector] = true;
-    allowlistFunctions[IQiVault.setMinCollateralRatio.selector] = true;
     allowlistFunctions[IQiVault.setTreasury.selector] = true;
 
     // These functions are blocked entirely:
